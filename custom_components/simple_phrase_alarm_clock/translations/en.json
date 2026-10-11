@@ -1,0 +1,50 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add an alarm clock",
+        "description": "Link a Kiosk Satellite to the voice satellite it belongs to. The admin password is only used once to obtain a long-lived token; only the token is stored.",
+        "data": {
+          "satellite_entity_id": "Voice satellite",
+          "host": "Kiosk host or IP address",
+          "port": "Remote administration port",
+          "password": "Kiosk admin password",
+          "ssl": "Use HTTPS",
+          "verify_ssl": "Verify the HTTPS certificate"
+        },
+        "data_description": {
+          "satellite_entity_id": "The Assist satellite entity on the same device as the kiosk. Voice commands from this satellite set alarms on this kiosk.",
+          "verify_ssl": "Turn this off for the kiosk's self-signed certificate."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Log in again",
+        "description": "The kiosk {name} no longer accepts the stored token. Enter the kiosk admin password to get a new one.",
+        "data": {
+          "password": "Kiosk admin password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot reach the kiosk. Check the address, the port and that remote administration is on.",
+      "invalid_auth": "The kiosk rejected the password.",
+      "unknown": "Unexpected response from the kiosk. See the Home Assistant log."
+    },
+    "abort": {
+      "already_configured": "This voice satellite already has an alarm clock.",
+      "reauth_successful": "Logged in again."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Speech-to-Phrase",
+        "description": "Options are shared by all alarm clocks; the first one added decides. Changing them reloads the integration.",
+        "data": {
+          "manage_speech_to_phrase": "Manage the Speech-to-Phrase sentence file and restart the add-on when it changes",
+          "speech_to_phrase_addon": "Speech-to-Phrase add-on slug"
+        }
+      }
+    }
+  }
+}
